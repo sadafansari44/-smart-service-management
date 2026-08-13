@@ -8,9 +8,13 @@ function Home() {
         const checkAPI = async () => {
             try {
                 const response = await api.get("/health");
+
+                console.log("API Response:", response.data);
+
                 setMessage(response.data.message);
             } catch (error) {
-                console.error("API error:", error);
+                console.error("API Error:", error);
+
                 setMessage("Backend connection failed");
             }
         };
